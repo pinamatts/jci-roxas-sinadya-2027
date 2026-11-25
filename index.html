@@ -86,10 +86,9 @@ main{flex:1;min-height:60dvh}main.in{animation:in .32s var(--ease)}
 @keyframes in{from{opacity:0;transform:translateY(8px)}}
 section{padding-block:clamp(48px,7vw,96px)}
 .hero{padding-block:clamp(32px,5vw,72px) clamp(36px,5vw,64px);position:relative;overflow:hidden}
-/* the prism: one beam of spectrum crossing behind the poster */
-.hero::before{content:"";position:absolute;inset:-30% -10%;pointer-events:none;opacity:.6;
-  background:linear-gradient(113deg,transparent 0 50%,var(--c1) 50% 52.2%,var(--c2) 52.2% 54.4%,var(--c3) 54.4% 56.6%,var(--c4) 56.6% 58.8%,var(--c5) 58.8% 61%,var(--c6) 61% 63.2%,var(--c7) 63.2% 65.4%,transparent 65.4%);
-  -webkit-mask-image:linear-gradient(90deg,transparent 38%,#000 62%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent 38%,#000 62%,#000 88%,transparent)}
+/* one soft light behind the poster. The striped rainbow beam was removed at the client's request (26 Nov 2026). */
+.hero::before{content:"";position:absolute;right:-6%;top:50%;width:min(64vw,760px);aspect-ratio:1;translate:0 -50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(134,118,255,.30),rgba(60,184,255,.10) 58%,transparent)}
 .hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center}
 .hero h1{font-weight:800;font-size:clamp(2.6rem,5.1vw,4.1rem);line-height:1;letter-spacing:-.03em;text-transform:uppercase}
 .hero h1 span{display:block;white-space:nowrap}
@@ -101,7 +100,7 @@ section{padding-block:clamp(48px,7vw,96px)}
 .lede{font-size:clamp(1.05rem,.95rem + .5vw,1.25rem);line-height:1.5;margin:clamp(22px,3vw,34px) 0 clamp(22px,3vw,32px);max-width:44ch;color:#dfe2fb}
 .lede b{color:#fff}
 .poster{width:min(100%,380px);justify-self:center;border-radius:16px;rotate:2.5deg;padding:4px;background:var(--prism);box-shadow:0 34px 70px -26px rgba(0,0,0,.9),0 0 60px -18px rgba(134,118,255,.7)}
-@media(max-width:820px){.hero h1{font-size:clamp(2rem,10.2vw,4.1rem)}.hero .wrap{grid-template-columns:1fr}.poster{width:min(82%,340px);rotate:1.5deg}.hero::before{opacity:.45;-webkit-mask-image:linear-gradient(180deg,transparent 40%,#000 62%);mask-image:linear-gradient(180deg,transparent 40%,#000 62%)}}
+@media(max-width:820px){.hero h1{font-size:clamp(2rem,10.2vw,4.1rem)}.hero .wrap{grid-template-columns:1fr}.poster{width:min(82%,340px);rotate:1.5deg}.hero::before{right:auto;left:50%;top:auto;bottom:-6%;translate:-50% 0;width:min(130vw,640px)}}
 
 .tally{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:clamp(20px,3.5vw,36px);box-shadow:var(--sh)}
 .tally h2{font-size:clamp(1.15rem,.9rem + 1.2vw,1.6rem)}.tally h2 b{color:var(--c3);font-weight:800}
@@ -300,4 +299,4 @@ footer .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;
 <div><h3>Contact</h3><a href="mailto:jciroxassinadya@gmail.com">jciroxassinadya@gmail.com</a><a href="tel:+639260063801">0926 006 3801</a><a href="https://www.facebook.com/jciroxassinadya" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/jciroxassinadya/" target="_blank" rel="noopener">Instagram</a></div>
 <div class="fine"><span>JCI Roxas Sinadya · 2027 Community Development Projects · Great By Choice!</span><a href="#/admin" style="padding:0">Officers</a></div>
 </div></footer>
-<script src="app.js?v=9"></script></body></html>
+<script src="app.js?v=10"></script></body></html>
