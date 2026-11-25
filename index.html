@@ -160,6 +160,8 @@ section{padding-block:clamp(48px,7vw,96px)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:clamp(20px,3.5vw,36px);box-shadow:var(--sh);margin-top:clamp(18px,3vw,28px)}
 .panel h2{font-size:1.2rem;letter-spacing:-.01em}.panel h2:not(:first-child){margin-top:32px}
 .note{background:rgba(255,212,71,.12);border:1px solid rgba(255,212,71,.32);border-radius:var(--r-m);padding:14px 18px;font-size:.95rem}
+.paybox{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}.qr{width:176px;height:176px;background:#fff;border-radius:14px;padding:4px}
+@media(max-width:560px){.paybox{grid-template-columns:1fr;justify-items:center;text-align:center}.paybox .row{justify-content:center}.qr{width:min(240px,72vw);height:auto}}
 .payno{font:800 clamp(1.5rem,1.1rem + 1.8vw,2rem)/1.2 var(--display);letter-spacing:-.01em;color:var(--c3);margin-top:2px}
 .flow{list-style:none;display:flex;gap:6px;padding:0;margin:0 0 clamp(18px,3vw,28px);font-size:.85rem;font-weight:600;color:var(--mut);overflow-x:auto;scrollbar-width:none}
 .flow li{display:flex;align-items:center;gap:6px;white-space:nowrap}
@@ -298,4 +300,4 @@ footer .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;
 <div><h3>Contact</h3><a href="mailto:jciroxassinadya@gmail.com">jciroxassinadya@gmail.com</a><a href="tel:+639260063801">0926 006 3801</a><a href="https://www.facebook.com/jciroxassinadya" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/jciroxassinadya/" target="_blank" rel="noopener">Instagram</a></div>
 <div class="fine"><span>JCI Roxas Sinadya · 2027 Community Development Projects · Great By Choice!</span><a href="#/admin" style="padding:0">Officers</a></div>
 </div></footer>
-<script src="app.js?v=6"></script></body></html>
+<script src="app.js?v=7"></script></body></html>

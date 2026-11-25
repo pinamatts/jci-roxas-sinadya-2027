@@ -1,7 +1,8 @@
 const SB='https://onxdrazvjfbddhopnvet.supabase.co',SBK='sb_publishable_kHlXmivbipWFHeKJpRnMnw_Gxv8q0ia',P=100,N=3000;
 /* PAYMENT CHANNELS (from Brandon Daryle Barreto, Project Chairperson, 25 Nov 2026).
    Empty this list to close sales: the site then shows a PREVIEW notice and asks people not to pay. */
-const PAY=[{m:'GCash',no:'09260063801',name:'Brandon Daryle Barreto'},{m:'GoTyme',no:'09260063801',name:'Brandon Daryle Barreto'}];
+const PAY=[{m:'GCash',no:'09260063801',name:'Brandon Daryle Barreto',qr:'img/qr-gcash.png'},{m:'GoTyme',no:'09260063801',name:'Brandon Daryle Barreto',qr:'img/qr-gotyme.png'}];
+/* The QR images are regenerated from the QR Ph codes Brandon sent on Messenger (same data, checked by decoding them back). */
 const POSTER='img/poster.jpg',ABOUT='img/about.jpg';
 const PH=['img/p1.jpg','img/p2.jpg','img/p3.jpg','img/p4.jpg','img/p5.jpg','img/p6.jpg'];
 const LGI=[['img/logo-jcip.png','JCI Philippines',310],['img/logo.png','JCI Roxas Sinadya',420*150/207],['img/logo-gbc.png','Great By Choice',201]].map(x=>`<img src="${x[0]}" alt="${x[1]}" width="${Math.round(x[2])}" height="150">`).join('');
@@ -33,7 +34,7 @@ const PROJ=[
 ];
 const LIVE=PAY.length>0,METHODS=Object.fromEntries(PAY.map(p=>[p.m,p]));
 const sp=n=>String(n).replace(/^(\d{4})(\d{3})(\d{4})$/,'$1 $2 $3');
-const payBox=m=>{const p=METHODS[m];return p?`<p class="sm" style="margin:0">Send the total to this ${esc(p.m)} number</p><div class="payno num">${sp(p.no)}</div><p class="sm" style="margin:2px 0 12px">Account name: <b>${esc(p.name)}</b></p><button type="button" class="btn sm s" onclick="cp('${p.no}',this)">Copy number</button>`:'Payment details will be posted here before sales open.'};
+const payBox=m=>{const p=METHODS[m];if(!p)return'Payment details will be posted here before sales open.';return`<div class="paybox">${p.qr?`<img class="qr" src="${p.qr}" width="880" height="880" alt="${esc(p.m)} QR code for ${esc(p.name)}">`:''}<div><p class="sm" style="margin:0">${p.qr?`Scan this QR in your ${esc(p.m)} app, or send the total to this number`:`Send the total to this ${esc(p.m)} number`}</p><div class="payno num">${sp(p.no)}</div><p class="sm" style="margin:2px 0 12px">Account name: <b>${esc(p.name)}</b></p><div class="row" style="gap:8px"><button type="button" class="btn sm s" onclick="cp('${p.no}',this)">Copy number</button>${p.qr?`<a class="btn sm s" href="${p.qr}" download="JCI-Roxas-Sinadya-${esc(p.m)}-QR.png">Save QR</a>`:''}</div></div></div>${p.qr?`<p class="sm mut" style="margin:12px 0 0">On the same phone? Tap Save QR, then use Upload QR in your ${esc(p.m)} app.</p>`:''}`};
 function cp(t,b){const ok=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy number',1600)};(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(ok).catch(()=>{const i=document.createElement('input');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()})}
 const page=(h,c='')=>`<div class="wrap page ${c}">${h}</div>`;
 const FL=['Your details','Payment','Pick numbers','Keep or donate','Receipt'];
