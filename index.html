@@ -220,7 +220,7 @@ input[type=file]::file-selector-button{font:600 .9rem var(--text);border:1.5px s
 span.n{display:inline-block;text-align:center}
 
 /* ---------- status, tables ---------- */
-.st{display:inline-block;font-weight:700;padding:3px 10px;border-radius:999px;font-size:.78rem;letter-spacing:.03em}
+.st{display:inline-block;font-weight:700;padding:3px 10px;border-radius:999px;font-size:.78rem;letter-spacing:.03em;white-space:nowrap}
 .st.success{background:var(--ok-tint);color:var(--ok)}.st.pending{background:var(--warn-tint);color:var(--warn)}.st.failed,.st.refunded{background:var(--no-tint);color:var(--no)}
 .sc{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:.93rem;font-variant-numeric:tabular-nums}
@@ -271,6 +271,19 @@ details li{margin:6px 0;max-width:66ch}details ol,details ul{padding-left:1.25em
 .bar{height:10px;background:rgba(255,255,255,.12);border-radius:9px;overflow:hidden;display:flex}.bar b{background:var(--ok)}.bar u{background:var(--c3)}
 .sm9{display:grid;grid-template-columns:repeat(auto-fill,minmax(13px,1fr));gap:2px}.sm9 span{height:13px;border-radius:3px;background:rgba(255,255,255,.1)}.sm9 .res{background:var(--c3)}.sm9 .sold{background:var(--ok)}
 .win{font:800 clamp(1.3rem,1rem + 1.6vw,1.9rem)/1.2 var(--display);text-align:center;color:var(--c3);margin-top:12px;min-height:1.3em}
+/* purchasers: one block per entry, so it reads on a phone without sideways scrolling (26 Nov 2026) */
+.note.ok{background:var(--ok-tint);border-color:rgba(95,227,171,.42)}.note.no{background:var(--no-tint);border-color:rgba(255,143,163,.42)}
+.flt{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:16px}.flt .sc{min-width:0;max-width:100%}.flt .seg button{white-space:nowrap}.flt .seg .num{opacity:.65;margin-left:4px}
+.flt input{flex:1 1 250px;width:auto;min-height:44px;margin:0;border-radius:999px}
+.ord{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,.95fr) minmax(158px,auto);gap:12px 24px;padding:20px 0;border-top:1px solid var(--line)}
+.ord:first-child{border-top:0;padding-top:0}.ord:last-child{padding-bottom:0}
+.ord>div{display:flex;flex-direction:column;gap:5px;align-items:flex-start;min-width:0;overflow-wrap:anywhere}
+.ord a{color:var(--c5);font-size:.9rem;font-weight:600}.ord .onum{max-height:132px;overflow:auto;width:100%}
+.ord .oa{gap:8px}.ord .oa .btn{width:100%}
+@media(max-width:860px){.ord{grid-template-columns:1fr}.ord .oa{flex-direction:row;flex-wrap:wrap}.ord .oa .btn{width:auto;flex:1 1 auto;min-height:44px}.ord .oa .btn:not(.s){flex-basis:100%}}
+@media(max-width:640px){.flt .sc{overflow:visible;width:100%}.flt .seg{display:flex;flex-wrap:wrap;border-radius:22px}.flt .seg button{flex:1 1 auto;padding:8px 12px}}
+.btn.s.dz{color:var(--no);box-shadow:inset 0 0 0 1.5px rgba(255,143,163,.45)}.btn.s.dz:hover{background:var(--no-tint);box-shadow:inset 0 0 0 1.5px var(--no)}
+.vd td{color:var(--mut)}.vd td:nth-child(-n+4){text-decoration:line-through}
 
 /* ---------- footer ---------- */
 footer{background:#060818;color:var(--mut);font-size:.95rem;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
@@ -299,4 +312,4 @@ footer .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;
 <div><h3>Contact</h3><a href="mailto:jciroxassinadya@gmail.com">jciroxassinadya@gmail.com</a><a href="tel:+639260063801">0926 006 3801</a><a href="https://www.facebook.com/jciroxassinadya" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/jciroxassinadya/" target="_blank" rel="noopener">Instagram</a></div>
 <div class="fine"><span>JCI Roxas Sinadya · 2027 Community Development Projects · Great By Choice!</span><a href="#/admin" style="padding:0">Officers</a></div>
 </div></footer>
-<script src="app.js?v=10"></script></body></html>
+<script src="app.js?v=11"></script></body></html>
